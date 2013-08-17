@@ -1,36 +1,31 @@
 //practicing regex, so using regex to parse string
-function Bob() {
-
-	function is_silence(conversation){
-		return (/^[\s]*$/m).test(conversation); // treating silence as any amount of whitespace
-	}
-		
-	function is_question(conversation){
-		return (/^.*\?$/m).test(conversation); // _____? is a question
-	}
-
-	function is_shout(conversation){
-		return (/^[^a-z]*$/m).test(conversation); // as long as there's no lowercase, it's shouting
-	}
+var Bob = function() {
 
 	this.hey = function(conversation){
-		if(is_silence(conversation))
-		{
-			return 'Fine. Be that way!';
-		}
-		else if(is_question(conversation))
-		{
+		
+		if(isQuestion(conversation)){
 			return 'Sure.';
-		}
-		else if(is_shout(conversation))
-		{
+		} else if(isShout(conversation)){
 			return 'Woah, chill out!';
-		}
-		else
-		{
+		} else if(isSilence(conversation)){
+			return 'Fine. Be that way!';
+		} else {
 			return 'Whatever.';
 		}
 	};
-}
+
+	var isShout = function(conversation){
+		return (/^[^a-z]+$/).test(conversation); // as long as there's no lowercase, it's shouting
+	};
+
+	var isQuestion = function(conversation){
+		return (/^.*\?$/).test(conversation); // _____? is a question
+	};
+
+	var isSilence = function(conversation){
+		return (/^[\s]*$/).test(conversation); // treating silence as any amount of whitespace
+	};	
+};
 
 module.exports = Bob;
+
