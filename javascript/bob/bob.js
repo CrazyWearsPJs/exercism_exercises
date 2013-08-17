@@ -2,7 +2,7 @@
 var Bob = function() {
 
 	this.hey = function(conversation){
-		
+
 		if(isQuestion(conversation)){
 			return 'Sure.';
 		} else if(isShout(conversation)){
@@ -14,17 +14,20 @@ var Bob = function() {
 		}
 	};
 
-	var isShout = function(conversation){
-		return (/^[^a-z]+$/).test(conversation); // as long as there's no lowercase, it's shouting
-	};
-
+	// _____? is a question
 	var isQuestion = function(conversation){
-		return (/^.*\?$/).test(conversation); // _____? is a question
+		return (/\?$/).test(conversation); 
 	};
 
+	// as long as there's no lowercase, it's shouting
+	var isShout = function(conversation){
+		return (/^[^a-z]+$/).test(conversation); 
+	};
+
+	// treating silence as any amount of whitespace
 	var isSilence = function(conversation){
-		return (/^[\s]*$/).test(conversation); // treating silence as any amount of whitespace
-	};	
+		return (/^\s*$/).test(conversation); 
+	};
 };
 
 module.exports = Bob;
