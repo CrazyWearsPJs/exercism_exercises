@@ -1,26 +1,7 @@
-
-var Words = function() {
-
-	/* returns an object whose properties of 
+/* returns an object whose properties of 
 	are words from a phrase and their values are
 	occurrences of that word in the phrase */
-	this.count = function(phrase){
-		
-		var myWordList = getWordList(phrase),
-			wordCount = {},
-			hasOwn = Object.hasOwnProperty;
-
-		for (var i = 0, size = myWordList.length; i < size; i += 1){
-			
-			if (hasOwn.call(wordCount, myWordList[i])){
-				wordCount[myWordList[i]] += 1;
-			} else {
-				wordCount[myWordList[i]] = 1;
-			}
-		}
-
-		return wordCount;
-	};
+var Words = function(phrase) {
 
 	/* in this implementation, a phrase is a string of words
 	delimited by whitespace and each word is made up of alphabetic
@@ -38,6 +19,21 @@ var Words = function() {
 	var removeNonAlpha = function(myString){
 		return myString.replace(/[^a-z1-9\s]/gi, '');
 	};
+
+	var myWordList = getWordList(phrase),
+		wordCount = {},
+		hasOwn = Object.hasOwnProperty;
+
+	for (var i = 0, size = myWordList.length; i < size; i += 1){
+			
+		if (hasOwn.call(wordCount, myWordList[i])){
+			wordCount[myWordList[i]] += 1;
+		} else {
+			wordCount[myWordList[i]] = 1;
+		}
+	}
+
+	return {word : wordCount};
 };
 
 module.exports = Words;
