@@ -33,7 +33,7 @@ var Words = function(phrase) {
 		}
 	}
 
-	return {word : wordCount};
+	return {count : wordCount};
 };
 
 module.exports = Words;
