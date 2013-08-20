@@ -1,8 +1,4 @@
-/* in this implementation, a phrase is a string of words
-delimited by whitespace and each word is made up of alphabetic
-characters: 
-
-returns an array of lowercase words from the phrase with all 
+/* returns an array of lowercase words from the phrase with all 
 non-alphanumeric characters removed from the original phrase */
 var getWordList = function(phrase){
 	return phrase.toLowerCase().split(/\W+/g);
