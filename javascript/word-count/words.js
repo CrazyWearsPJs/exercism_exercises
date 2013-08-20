@@ -13,7 +13,6 @@ var getWordList = function(phrase){
 	occurrences of that word in the phrase */
 var Words = function(phrase) {
 
-
 	var myWordList = getWordList(phrase),
 		wordCount = {},
 		hasOwn = Object.hasOwnProperty;
