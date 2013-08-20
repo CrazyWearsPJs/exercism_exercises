@@ -30,4 +30,3 @@ var Words = function(phrase) {
 };
 
 module.exports = Words;
-
