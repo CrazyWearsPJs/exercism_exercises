@@ -8,8 +8,7 @@ var toSortedString = function(myString){
 var Anagram = function(word){
 
 	// returns a list of anagrams of word from candidateList
-	this.match = function(candidateList)
-	{
+	this.match = function(candidateList){
 		return candidateList.filter(isAnagram);
 	};
 
